@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Виділення тексту</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    input {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+    p {
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+<h3>Виділіть текст, щоб він з'явився в полі вводу:</h3>
+<input type="text" id="textInput" placeholder="Тут з'явиться виділений текст...">
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum deserunt illum distinctio nesciunt alias facere adipisci quaerat voluptates!</p>
+<p>Спробуйте виділити цей текст або будь-який інший і перевірте результат.</p>
+
+<script>
+  // Функція для запису виділеного тексту в поле input
+  function insertSelectedText() {
+    const inputField = document.getElementById('textInput'); // Знаходимо input
+    const selectedText = window.getSelection().toString();  // Отримуємо виділений текст
+    if (selectedText) {  // Перевірка, чи є виділений текст
+      inputField.value = selectedText; // Записуємо текст у input
+    }
+  }
+
+  // Обробник події "mouseup" для всієї сторінки
+  document.addEventListener('mouseup', insertSelectedText);
+</script>
+</body>
+</html>
